@@ -1,0 +1,14 @@
+section "main", ROM0[$0100]
+main:
+		xor a
+		ld b, 233
+		ld c, a
+	.loop
+		inc c
+		ld a, c
+		cp b
+	jr nz, .loop
+		ld b, b
+		halt 
+		nop
+		
