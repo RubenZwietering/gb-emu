@@ -10,6 +10,7 @@ SRCS := \
 	cgb.cpp  \
 	cpu.cpp  \
 	cpu_instructions.cpp \
+	cpu_instruction_name_table.cpp \
 	dmg.cpp  \
 	mem.cpp  \
 	ppu.cpp

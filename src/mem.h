@@ -18,5 +18,5 @@ public:
 private:
 	Bus& m_bus;
 
-	uint8_t m_ram[0xffff];
+	uint8_t m_ram[0x10000];
 };

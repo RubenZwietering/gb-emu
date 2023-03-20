@@ -4,16 +4,13 @@
 // #include <fstream>
 #include <cstdio>
 
-uint8_t* Dmg::s_debug_mem = nullptr;
-
 Dmg::Dmg()
 	: m_bus()
 	, m_mem(m_bus)
 	, m_cpu(m_bus, m_mem)
 	, m_is_powered_on(false)
 {
-	// very ugly
-	s_debug_mem = m_mem.direct_ram();
+	
 }
 
 void Dmg::insert_cartridge(std::string const& path)

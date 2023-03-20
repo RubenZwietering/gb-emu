@@ -1,5 +1,8 @@
 #pragma once
 #include <cstdint>
+#include <string>
+#include <map>
+#include <tuple>
 
 #include "bus.h"
 #include "mem.h"
@@ -20,14 +23,14 @@ private:
 	union {
 		uint16_t RAF;
 		struct {
-			bool F0 : 1;
-			bool F1 : 1;
-			bool F2 : 1;
-			bool F3 : 1;
-			bool FC : 1;
-			bool FH : 1;
-			bool FN : 1;
-			bool FZ : 1;
+			uint8_t F0 : 1;
+			uint8_t F1 : 1;
+			uint8_t F2 : 1;
+			uint8_t F3 : 1;
+			uint8_t FC : 1;
+			uint8_t FH : 1;
+			uint8_t FN : 1;
+			uint8_t FZ : 1;
 			uint8_t RA;
 		};
 	};
@@ -61,7 +64,9 @@ private:
 	uint8_t m_instruction_byte1;
 	uint8_t m_instruction_byte2;
 	int8_t m_instruction_remaining_cycles;
-	bool m_instruction_prefix_mode;
 
 	int8_t execute_instruction();
+	int8_t execute_prefixed_instruction();
+
+	static std::map<uint8_t, std::tuple<std::string, int8_t>> const s_instruction_names;
 };

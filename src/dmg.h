@@ -18,8 +18,6 @@ public:
 	void power_on();
 	void power_off();
 
-	static uint8_t* s_debug_mem;
-
 private:
 	Bus m_bus;
 	Mem m_mem;
